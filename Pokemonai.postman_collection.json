@@ -1,0 +1,1480 @@
+{
+	"info": {
+		"_postman_id": "1ae763cd-0a90-44bc-ac5b-31603855ec47",
+		"name": "Pokemonai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23279945"
+	},
+	"item": [
+		{
+			"name": "pikachu",
+			"item": [
+				{
+					"name": "Puslapis yra pasiekiamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statuso kodas yra 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}",
+							"host": [
+								"{{poke}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability sarasas turi du elementus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ability sarasas turi du elementus \", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[1]).to.exist\r",
+									"   console.log(jsonData.abilities);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/pikachu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmas ability yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono pirmas ability yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.name).to.be.eql('static')\r",
+									"   console.log(jsonData.abilities[0].ability.name)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{poke}}/pikachu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmo ability URL yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono URL yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.url).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/pikachu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grazintas height yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Grazintas height yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.height).to.be.eql(4)\r",
+									"   console.log(jsonData.height)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/pikachu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type yra electric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type.name).to.be.eql(\"electric\")\r",
+									"   console.log(jsonData.types[0].type.name)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/pikachu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strukturos patikra",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Strukturos patikra\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.base_experience).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.forms).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.game_indices).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.height).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.held_items).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.moves).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.species).to.be.an(\"object\")\r",
+									"   pm.expect(jsonData.sprites).to.be.an(\"object\")\r",
+									"   pm.expect(jsonData.stats).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.types).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.weight).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.id).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.is_default).to.be.an(\"boolean\")\r",
+									"   pm.expect(jsonData.name).to.be.a(\"string\")\r",
+									"   pm.expect(jsonData.order).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.past_types).to.be.an(\"array\")\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/pikachu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ditto",
+			"item": [
+				{
+					"name": "Puslapis yra pasiekiamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statuso kodas yra 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}",
+							"host": [
+								"{{poke}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability sarasas turi du elementus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ability sarasas turi du elementus \", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[1]).to.exist\r",
+									"   console.log(jsonData.abilities);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/ditto",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"ditto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmas ability yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono pirmas ability yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.name).to.be.eql('limber')\r",
+									"   console.log(jsonData.abilities[0].ability.name)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{poke}}/ditto",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"ditto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmo ability URL yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono URL yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.url).to.be.eql(\"https://pokeapi.co/api/v2/ability/7/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/ditto",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"ditto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grazintas height yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Grazintas height yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.height).to.be.eql(3)\r",
+									"   console.log(jsonData.height)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/ditto",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"ditto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type yra electric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type.name).to.be.eql(\"normal\")\r",
+									"   console.log(jsonData.types[0].type.name)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/ditto",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"ditto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strukturos patikra",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Strukturos patikra\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.base_experience).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.forms).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.game_indices).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.height).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.held_items).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.moves).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.species).to.be.an(\"object\")\r",
+									"   pm.expect(jsonData.sprites).to.be.an(\"object\")\r",
+									"   pm.expect(jsonData.stats).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.types).to.be.an(\"array\")\r",
+									"   pm.expect(jsonData.weight).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.id).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.is_default).to.be.an(\"boolean\")\r",
+									"   pm.expect(jsonData.name).to.be.a(\"string\")\r",
+									"   pm.expect(jsonData.order).to.be.a(\"number\")\r",
+									"   pm.expect(jsonData.past_types).to.be.an(\"array\")\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/ditto",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"ditto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "meow",
+			"item": [
+				{
+					"name": "Puslapis yra pasiekiamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statuso kodas yra 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}",
+							"host": [
+								"{{poke}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability sarasas turi du elementus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ability sarasas turi du elementus \", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[1]).to.exist\r",
+									"   console.log(jsonData.abilities);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/meow",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"meow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmas ability yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono pirmas ability yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.name).to.be.eql('static')\r",
+									"   console.log(jsonData.abilities[0].ability.name)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{poke}}/meow",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"meow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmo ability URL yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono URL yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.url).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/meow",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"meow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grazintas height yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Grazintas height yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.height).to.be.eql(4)\r",
+									"   console.log(jsonData.height)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/meow",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"meow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type yra electric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type.name).to.be.eql(\"electric\")\r",
+									"   console.log(jsonData.types[0].type.name)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/meow",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"meow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strukturos patikra",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/meow",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"meow"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chu",
+			"item": [
+				{
+					"name": "Puslapis yra pasiekiamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statuso kodas yra 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}",
+							"host": [
+								"{{poke}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability sarasas turi du elementus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ability sarasas turi du elementus \", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[1]).to.exist\r",
+									"   console.log(jsonData.abilities);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/chu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"chu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmas ability yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono pirmas ability yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.name).to.be.eql('static')\r",
+									"   console.log(jsonData.abilities[0].ability.name)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{poke}}/chu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"chu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmo ability URL yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono URL yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.url).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/chu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"chu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grazintas height yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Grazintas height yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.height).to.be.eql(4)\r",
+									"   console.log(jsonData.height)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/chu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"chu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type yra electric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type.name).to.be.eql(\"electric\")\r",
+									"   console.log(jsonData.types[0].type.name)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/chu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"chu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strukturos patikra",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/chu",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"chu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "onyx",
+			"item": [
+				{
+					"name": "Puslapis yra pasiekiamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statuso kodas yra 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}",
+							"host": [
+								"{{poke}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability sarasas turi du elementus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ability sarasas turi du elementus \", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[1]).to.exist\r",
+									"   console.log(jsonData.abilities);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/onyx",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"onyx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmas ability yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono pirmas ability yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.name).to.be.eql('static')\r",
+									"   console.log(jsonData.abilities[0].ability.name)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{poke}}/onyx",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"onyx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmo ability URL yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono URL yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.url).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/onyx",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"onyx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grazintas height yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Grazintas height yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.height).to.be.eql(4)\r",
+									"   console.log(jsonData.height)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/onyx",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"onyx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type yra electric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type.name).to.be.eql(\"electric\")\r",
+									"   console.log(jsonData.types[0].type.name)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/onyx",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"onyx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strukturos patikra",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/onyx",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"onyx"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "alakazam",
+			"item": [
+				{
+					"name": "Puslapis yra pasiekiamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statuso kodas yra 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}",
+							"host": [
+								"{{poke}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ability sarasas turi du elementus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Ability sarasas turi du elementus \", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[1]).to.exist\r",
+									"   console.log(jsonData.abilities);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/alakazam",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"alakazam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmas ability yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono pirmas ability yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.name).to.be.eql('static')\r",
+									"   console.log(jsonData.abilities[0].ability.name)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{poke}}/alakazam",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"alakazam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pirmo ability URL yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pokemono URL yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.abilities[0].ability.url).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/alakazam",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"alakazam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grazintas height yra teisingas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Grazintas height yra teisingas\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.height).to.be.eql(4)\r",
+									"   console.log(jsonData.height)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/alakazam",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"alakazam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Type yra electric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type.name).to.be.eql(\"electric\")\r",
+									"   console.log(jsonData.types[0].type.name)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/alakazam",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"alakazam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strukturos patikra",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type yra electric\", function () {\r",
+									"   var jsonData = pm.response.json();\r",
+									"   pm.expect(jsonData.types[0].type).to.be.eql(\"https://pokeapi.co/api/v2/ability/9/\")\r",
+									"   console.log(jsonData.abilities[0].ability.url)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{poke}}/alakazam",
+							"host": [
+								"{{poke}}"
+							],
+							"path": [
+								"alakazam"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
